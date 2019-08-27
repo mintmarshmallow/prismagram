@@ -1,0 +1,5 @@
+PORT=4000
+SENDGRID_USERNAME=something
+SENDGRID_PASSWORD=something
+
+You should make a .env file like above on here!
