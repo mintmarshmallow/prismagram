@@ -1,10 +1,7 @@
-import dotenv from "dotenv";
-import path from "path";
-dotenv.config({ path: path.resolve(__dirname, ".env") });
-
 import { adjectives, nouns } from "./words";
 import nodemailer from "nodemailer";
 import sgTransport from "nodemailer-sendgrid-transport";
+import jwt from "jsonwebtoken";
 
 export const generateSecret = () => {
   const randomNumber = Math.floor(Math.random() * adjectives.length);
@@ -27,7 +24,9 @@ export const sendSecretMail = (adress, secret) => {
     from: "nico@prisma.com",
     to: adress,
     subject: "Login Secret for prismagram",
-    html: `hello your login secret it ${secret}. <br/> Copy paste on ythe app/website to login`
+    html: `hello your login secret it <strong>${secret}<strong/>. <br/> Copy paste on ythe app/website to login`
   };
   return sendMail(email);
 };
+
+export const generateToken = id => jwt.sign({ id }, process.env.JWT_SECRET);
