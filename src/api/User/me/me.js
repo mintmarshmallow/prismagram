@@ -12,5 +12,6 @@ export default {
                 user: userProfile, posts
             }
         }
-    }
+    },
+    
 }

@@ -1,11 +1,34 @@
-export const COMMENT_FRAGMENT = `
-    fragment CommentParts on Comment{
+ const COMMENT_FRAGMENT = `
         id
         text
         user {
-            username
+            ${USER_FRAGMENT}
+        }
+`
+ const USER_FRAGMENT = `
+        id
+        username
+
+`
+
+ const FILE_FRAGMENT = `
+        id
+        url
+`
+
+export const FULL_POST_FRAGMENT = `
+    fragment PostParts on Post{
+        id
+        caption
+        location
+        files {
+            ${FILE_FRAGMENT}
+        }
+        comments {
+            ${COMMENT_FRAGMENT}
+        }
+        user {
+            ${USER_FRAGMENT}
         }
     }
-
-
 `
