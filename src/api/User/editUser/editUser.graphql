@@ -4,5 +4,6 @@ username: String
 email: String
 firstName:String
 lastName: String
+avatar: String
 bio: String): User!
 }

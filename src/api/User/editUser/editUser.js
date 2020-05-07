@@ -9,7 +9,8 @@ export default {
                 email,
                 firstName,
                 lastName,
-                bio
+                bio,
+                avatar
             } = args;
             console.log(username, email, firstName, bio)
             const { user } = request;
@@ -18,7 +19,7 @@ export default {
                     id: user.id
                 },
                 data: {
-                    username, email, firstName, lastName, bio
+                    username, email, firstName, lastName, bio, avatar
                 }
             })
         }
